@@ -74,7 +74,7 @@ public class bUIView : MonoBehaviour
 
     void Start()
     {
-        var ctx = FindAnyObjectByType<BattleBootstrapper>()?.GetCtx();
+        var ctx = FindAnyObjectByType<BattleBootstrapper>()?.BattleContext;
         isStart = true;
         _presenter = new bUIPresenter(ctx, this);
 

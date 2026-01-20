@@ -9,14 +9,6 @@ public class BattleStateMachine
 {
     public IState Current { get; private set; }
     CancellationTokenSource _cts = new();
-    public IState PlayerTurnStart;
-    public IState PlayerAction;
-    public IState PlayerTurnEnd;
-    public IState AITurnStart;
-    public IState AIAction;
-    public IState AITurnEnd;
-    public IState BattleStart;
-    public IState BattleEnd;
 
     public async UniTask InitAsync(IState initial, CancellationToken ct)
     {
@@ -41,9 +33,6 @@ public class BattleStateMachine
         _cts.Dispose();
     }
 }
-
-
-public enum Side { Player, Enemy }
 
 public interface IState
 {

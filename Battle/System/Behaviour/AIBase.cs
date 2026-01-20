@@ -6,9 +6,9 @@ using BattleCore; // 리팩터된 컨텍스트
 public abstract class AIBase : MonoBehaviour
 {
     protected BattleContext ctx;
-    protected INode rootNode;
     protected GameObject target;
     protected BaseCombatant stat;
+    public INode RootNode { get; private set; }
 
     [Tooltip("이 유닛이 사용할 수 있는 스킬 이름들 (SkillManager 키)")]
     public string[] skillNames;
@@ -17,7 +17,7 @@ public abstract class AIBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        ctx  = FindAnyObjectByType<BattleBootstrapper>()?.GetCtx();
+        ctx  = FindAnyObjectByType<BattleBootstrapper>()?.BattleContext;
         stat = GetComponent<BaseCombatant>();
         InitBehaviourTreeAsync().Forget();
     }
@@ -28,12 +28,11 @@ public abstract class AIBase : MonoBehaviour
     {
         // 씬 초기화 타이밍 보정
         await UniTask.NextFrame();
-        rootNode = BuildBehaviorTree();
+        RootNode = BuildBehaviorTree();
     }
 
     protected abstract INode BuildBehaviorTree();
-
-    public INode GetNode() => rootNode;
+    
     public void ReloadRootNode() => InitBehaviourTreeAsync().Forget();
 
     // 팀/타겟 및 스킬 탐색 훅
@@ -53,7 +52,7 @@ public abstract class AIBase : MonoBehaviour
         }
     }
 
-    // 행동 말풍선 출력 헬퍼
+    // 행동 말풍선 출력
     protected void ShowActionText(string msg)
     {
         if (ctx == null || ctx.Selection == null) return;

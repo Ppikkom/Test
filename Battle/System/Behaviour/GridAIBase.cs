@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class GridAIBase : AIBase
 {
-    // 파생 클래스에서 팀 판별만 오버라이드
     protected abstract bool IsEnemyTeam { get; }
 
     // 계획(Plan) 구조체: 한 번의 공격을 위한 이동/회전/스킬 시퀀스
@@ -32,42 +31,31 @@ public abstract class GridAIBase : AIBase
         RefreshUsableSkills();
 
         var root = new SelectorNode();
-
-        // 1) 버프 (예: "철벽")
-        /*
-        var buffSeq = new SequenceNode();
-        buffSeq.Add(new ActionNode(() =>
-            !TagManager.Instance.태그확인(gameObject, "Buff.Defence") &&
-            usableSkills.Count != 0 &&
-            stat.현재_행동력 > 1 ? INode.STATE.SUCCESS : INode.STATE.FAIL));
-        buffSeq.Add(new ActionNode(UseBuff));
-        root.Add(buffSeq);
-        */
         
-        // 2) 공격(필요 시 이동/회전 포함 플래닝)
+        // 1) 공격(필요 시 이동/회전 포함 플래닝)
         var attackSeq = new SequenceNode();
         attackSeq.Add(new ActionNode(UsePlannedSkill));
         root.Add(attackSeq);
 
-        // 3) 회전만 필요할 때(인접 가로 방향에서 타겟을 등지고 있으면)
+        // 2) 회전만 필요할 때(인접 가로 방향에서 타겟을 등지고 있으면)
         var rotateSeq = new SequenceNode();
         rotateSeq.Add(new ActionNode(() => ShouldRotateToFaceAdjacentTarget() ? INode.STATE.SUCCESS : INode.STATE.FAIL));
         rotateSeq.Add(new ActionNode(UseRotateInPlace));
         root.Add(rotateSeq);
 
-        // 4) 이동 (타겟을 향해 한 칸 이동)
+        // 3) 이동 (타겟을 향해 한 칸 이동)
         var moveSeq = new SequenceNode();
         moveSeq.Add(new ActionNode(() => stat.이동력_유무() ? INode.STATE.SUCCESS : INode.STATE.FAIL));
         moveSeq.Add(new ActionNode(UseChaseMove));
         root.Add(moveSeq);
 
-        // 5) 방어
+        // 4) 방어
         var defSeq = new SequenceNode();
         defSeq.Add(new ActionNode(() => stat.행동력_유무() ? INode.STATE.SUCCESS : INode.STATE.FAIL));
         defSeq.Add(new ActionNode(UseDefend));
         root.Add(defSeq);
 
-        // 6) 턴 종료 (팀별로 처리 다름)
+        // 5) 턴 종료 (팀별로 처리 다름)
         var endSeq = new SequenceNode();
         endSeq.Add(new ActionNode(UseTurnEnd));
         root.Add(endSeq);

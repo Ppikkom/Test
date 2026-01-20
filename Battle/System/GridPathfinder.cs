@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Grid-based A* pathfinder.
-/// fieldMask semantics: 0 = blocked, 1 = free, 2 = occupied (unit)
-/// </summary>
 public static class GridPathfinder
 {
     private const int BLOCKED = 0;
@@ -24,15 +20,11 @@ public static class GridPathfinder
     {
         Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
     };
-
-    /// <summary>
-    /// Generic A*.
-    /// If allowOccupiedGoal is true, you may step onto a tile with value 2 only if it is the goal.
-    /// </summary>
+    
     public static List<Vector2Int> FindPath(Vector2Int start, Vector2Int goal, int[,] fieldMask, bool allowOccupiedGoal = false)
     {
-        int H = fieldMask.GetLength(0); // rows (y)
-        int W = fieldMask.GetLength(1); // cols (x)
+        int H = fieldMask.GetLength(0);
+        int W = fieldMask.GetLength(1);
 
         if (!InBounds(start, W, H) || !InBounds(goal, W, H))
             return null;
@@ -42,7 +34,7 @@ public static class GridPathfinder
             return new List<Vector2Int> { start };
 
         var open = new List<Node>(64);
-        var openMap = new Dictionary<Vector2Int, Node>(); // pos -> node (fast updates)
+        var openMap = new Dictionary<Vector2Int, Node>();
         var closed = new HashSet<Vector2Int>();
 
         Node startNode = new Node { Pos = start, G = 0, H = Heuristic(start, goal) };
@@ -51,7 +43,6 @@ public static class GridPathfinder
 
         while (open.Count > 0)
         {
-            // pick node with min F (stable, no full sort each loop)
             int bestIdx = 0; Node current = open[0];
             for (int i = 1; i < open.Count; i++)
             {
@@ -104,10 +95,7 @@ public static class GridPathfinder
 
         return null; // no path
     }
-
-    /// <summary>
-    /// Enemy path: allows stepping onto goal even if occupied.
-    /// </summary>
+    
     public static List<Vector2Int> FindPath_Enemy(Vector2Int start, Vector2Int goal, int[,] fieldMask)
         => FindPath(start, goal, fieldMask, allowOccupiedGoal: true);
 

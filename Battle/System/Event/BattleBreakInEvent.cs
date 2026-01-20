@@ -17,7 +17,7 @@ public class BattleBreakInEvent : BaseBattleEvent
     public override async UniTask OccurEvent()
     {
         // 오브젝트 소환
-        var ctx = FindAnyObjectByType<BattleBootstrapper>()?.GetCtx();
+        var ctx = FindAnyObjectByType<BattleBootstrapper>()?.BattleContext;
 
         // 플레이어 혹은 에너미 넣기
         ctx.Roster.UnitDB.TryGetValue(_objName, out GameObject obj);

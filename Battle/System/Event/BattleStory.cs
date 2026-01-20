@@ -1,8 +1,6 @@
-using System.Collections;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "StartStory", menuName = "Battle_System/Battle_Event/StartStory", order = 4)]
 public class BattleStory : BaseBattleEvent

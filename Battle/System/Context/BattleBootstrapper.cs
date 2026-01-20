@@ -19,7 +19,9 @@ public class BattleBootstrapper : MonoBehaviour
     public GameObject[] 적;
 
     BattleStateMachine _fsm;
-    BattleContext _ctx; // BattleCore.BattleContext (using BattleCore 덕분에 간단 이름 사용)
+    private BattleContext _ctx;
+    public BattleContext BattleContext => _ctx;
+    
     private CancellationTokenSource _battleCts;
 
     public GameObject 화살표;
@@ -99,7 +101,6 @@ public class BattleBootstrapper : MonoBehaviour
     {
         var bStart  = new BattleStartState(_fsm, _ctx);
         var bEnd    = new BattleEndState(_fsm, _ctx);
-        
         var tEnd = new TurnEnd(_fsm, _ctx);
         var tAction = new TurnAction(_fsm, _ctx);
         var pStart = new PlayerStart(_fsm, _ctx);
@@ -109,19 +110,15 @@ public class BattleBootstrapper : MonoBehaviour
         {
             BattleStart = bStart,
             BattleEnd = bEnd,
-
             TurnEnd = tEnd,
             TurnAction = tAction,
             NpcStart = nStart,
             PlayerStart = pStart
         };
     }
-
-    public BattleContext GetCtx() => _ctx; // 반환 타입도 리팩터된 컨텍스트
 }
 
 public class StateRef
 {
-    public IState BattleStart, BattleEnd; // PlayerTurnStart, PlayerTurnEnd, PlayerAction, AITurnStart, AITurnEnd, AIAction;
-    public IState TurnEnd, TurnAction, PlayerStart, NpcStart;
+    public IState BattleStart, BattleEnd, TurnEnd, TurnAction, PlayerStart, NpcStart;
 }

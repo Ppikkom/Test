@@ -1,7 +1,5 @@
 using Cysharp.Threading.Tasks;
 using BattleCore;
-using UnityEngine;
-
 
 public static class TurnFlow
 {
@@ -30,12 +28,10 @@ public static class TurnFlow
 
         if (ctx.index == roster.UseUnit.Count - 1)
         {
-            //Debug.Log($"Cur Total Turn : {ctx.totalTurn}");
             ctx.totalTurn++;
             ctx.SetListSort();
             ctx.InitTileFind();
             
-            //Debug.Log($"Cur unitIndex : {ctx.index}");
             ctx.index = 0;
 
             ctx.OnTurnCountChanged?.Invoke();

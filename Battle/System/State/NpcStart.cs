@@ -40,10 +40,10 @@ public class NpcStart : StateBase
         {
             ai.FindNearestTarget();
             ai.ReloadRootNode();
-            _node = ai.GetNode();
+            _node = ai.RootNode;
 
             await UniTask.WaitUntil(
-            () => ai.GetNode() != null,
+            () => ai.RootNode != null,
             cancellationToken: localCts.Token);
 
             _node.Evaluate();
