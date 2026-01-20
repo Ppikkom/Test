@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectManager : MonoBehaviour
+public class BattleEffectSystem : MonoBehaviour
 {
     #region 인스턴스
-    public static EffectManager Instance { get; private set; }
+    public static BattleEffectSystem Instance { get; private set; }
 
     [SerializeField] private List<BaseEffectSo> _effectSoList;
     private Dictionary<string, BaseEffectSo> _soMap = new();
@@ -36,24 +36,24 @@ public class EffectManager : MonoBehaviour
 
         _logicMap = new Dictionary<EffectType, IEffectLogic>()
         {
-            { EffectType.Anger, new AngerSo() },
-            { EffectType.Defence, new DefenceSo() },
-            { EffectType.Enhance, new EnhanceSo() },
-            { EffectType.Focus, new FocusSo() },
-            { EffectType.InstinctHeightened, new InstinctHeightenedSo() },
-            { EffectType.IronDefense, new IronDefenseSo() },
-            { EffectType.Regen, new RegenerationSo() },
-            { EffectType.SoL, new SoLSo() },
-            { EffectType.WildOpen, new WildOpenSo() },
-            { EffectType.Berserk, new BerserkSo() },
-            { EffectType.Bleeding, new BleedingSo() },
-            { EffectType.Lethargy, new BLethargySo() },
-            { EffectType.Blindness, new BlindnessSo() },
-            { EffectType.Burst, new BurstSo() },
-            { EffectType.Fainting, new FaintingSo() },
-            { EffectType.Fear, new FearSo() },
-            { EffectType.Loss, new LossSo() },
-            { EffectType.Stagger, new StaggerSo() },
+            { EffectType.Anger, new BattleAnger() },
+            { EffectType.Defence, new BattleDefence() },
+            { EffectType.Enhance, new BattleEnhance() },
+            { EffectType.Focus, new BattleFocus() },
+            { EffectType.InstinctHeightened, new BattleIH() },
+            { EffectType.IronDefense, new BattleIDefense() },
+            { EffectType.Regen, new BattleRegen() },
+            { EffectType.SoL, new BattleSoL() },
+            { EffectType.WildOpen, new BattleWildOpen() },
+            { EffectType.Berserk, new BattleBerserk() },
+            { EffectType.Bleeding, new BattleBleeding() },
+            { EffectType.Lethargy, new BattleLethargy() },
+            { EffectType.Blindness, new BattleBlindness() },
+            { EffectType.Burst, new BattleBurst() },
+            { EffectType.Fainting, new BattleFainting() },
+            { EffectType.Fear, new BattleFear() },
+            { EffectType.Loss, new BattleLoss() },
+            { EffectType.Stagger, new BattleStagger() },
         };
     }
 

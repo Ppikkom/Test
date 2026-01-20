@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 기절
-public class FaintingSo : IEffectLogic
+public class BattleFainting : IEffectLogic
 {
     // 턴 처음 시작할 때, 태그 확인하고 있으면 바로 TurnEnd
     // 따로 변수 만들어야 할 수도 있음.

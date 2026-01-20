@@ -1,17 +1,17 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-// 광속
-public class SoLSo : IEffectLogic
+// 야성개방
+public class BattleWildOpen : IEffectLogic
 {
+    // 매 행동 종료될때마다 검사해서 해당 효과 부여하면 될 듯?
     public void OnRegister(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그적용(obj, "Buff.SoL");
+        BattleTagSystem.Instance.태그적용(obj, "Buff.WildOpen");
     }
 
     public EffectResult OnUse(GameObject obj,EffectInstance inst)
     {
-        return new EffectResult(1);
+        return new EffectResult(1.2f);
     }
 
     public void OnTurnEnd(GameObject obj, EffectInstance inst)
@@ -21,11 +21,8 @@ public class SoLSo : IEffectLogic
     
     public void OnRemove(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그제거(obj, "Buff.SoL");
-        var bc = obj.GetComponent<BaseCombatant>();
-        bc.다음_이동력 += inst.Data.CurStack;
+        BattleTagSystem.Instance.태그제거(obj, "Buff.WildOpen");
     }
-
 
     
 }

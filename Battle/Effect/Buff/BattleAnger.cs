@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 분노
-public class AngerSo : IEffectLogic
+public class BattleAnger : IEffectLogic
 {
     // 등록될 때
     public void OnRegister(GameObject obj ,EffectInstance inst)

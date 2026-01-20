@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 고양
-public class EnhanceSo : IEffectLogic
+public class BattleEnhance : IEffectLogic
 {
     public void OnRegister(GameObject obj,EffectInstance inst)
     {

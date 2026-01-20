@@ -14,7 +14,7 @@ public static class TurnFlow
 
         // 여기 고치면 될듯?
         if (ctx.curUnit != null)
-            EffectManager.Instance.효과턴종료(ctx.curUnit);
+            BattleEffectSystem.Instance.효과턴종료(ctx.curUnit);
     }
 
     public static void AdvanceTurn(BattleContext ctx)

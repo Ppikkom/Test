@@ -1,30 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 경직
-public class StaggerSo : IEffectLogic
+// 방어
+public class BattleDefence : IEffectLogic
 {
-
     public void OnRegister(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그적용(obj, "Debuff.Stagger");
+        BattleTagSystem.Instance.태그적용(obj, "Buff.Defence");    
     }
 
     public EffectResult OnUse(GameObject obj,EffectInstance inst)
     {
-        return new EffectResult();
+        return new EffectResult(1.2f);
     }
-
+    
     public void OnTurnEnd(GameObject obj, EffectInstance inst)
     {
         return;
     }
-    
+
     public void OnRemove(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그제거(obj, "Debuff.Stagger");
-        var bc = obj.GetComponent<BaseCombatant>();
-        bc.다음_이동력 -= (inst.Data.CurStack * 2);
+        BattleTagSystem.Instance.태그제거(obj, "Buff.Defence");
     }
-    
 }

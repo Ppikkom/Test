@@ -1,17 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-// 야성개방
-public class WildOpenSo : IEffectLogic
+// 집중
+public class BattleFocus : IEffectLogic
 {
-    // 매 행동 종료될때마다 검사해서 해당 효과 부여하면 될 듯?
     public void OnRegister(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그적용(obj, "Buff.WildOpen");
+        BattleTagSystem.Instance.태그적용(obj, "Buff.Focus");
     }
 
     public EffectResult OnUse(GameObject obj,EffectInstance inst)
     {
-        return new EffectResult(1.2f);
+        return new EffectResult(0.3f); // 이게 합연산인지 곱연산인지?
     }
 
     public void OnTurnEnd(GameObject obj, EffectInstance inst)
@@ -21,7 +21,7 @@ public class WildOpenSo : IEffectLogic
     
     public void OnRemove(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그제거(obj, "Buff.WildOpen");
+        BattleTagSystem.Instance.태그제거(obj, "Buff.Focus");
     }
 
     

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 상실
-public class LossSo : IEffectLogic
+public class BattleLoss : IEffectLogic
 {
     public void OnRegister(GameObject obj ,EffectInstance inst)
     {

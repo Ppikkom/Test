@@ -1,17 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 집중
-public class FocusSo : IEffectLogic
+// 광속
+public class BattleSoL : IEffectLogic
 {
     public void OnRegister(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그적용(obj, "Buff.Focus");
+        BattleTagSystem.Instance.태그적용(obj, "Buff.SoL");
     }
 
     public EffectResult OnUse(GameObject obj,EffectInstance inst)
     {
-        return new EffectResult(0.3f); // 이게 합연산인지 곱연산인지?
+        return new EffectResult(1);
     }
 
     public void OnTurnEnd(GameObject obj, EffectInstance inst)
@@ -21,8 +21,11 @@ public class FocusSo : IEffectLogic
     
     public void OnRemove(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그제거(obj, "Buff.Focus");
+        BattleTagSystem.Instance.태그제거(obj, "Buff.SoL");
+        var bc = obj.GetComponent<BaseCombatant>();
+        bc.다음_이동력 += inst.Data.CurStack;
     }
+
 
     
 }

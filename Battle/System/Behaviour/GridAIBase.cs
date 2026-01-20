@@ -104,7 +104,7 @@ public abstract class GridAIBase : AIBase
 
     protected INode.STATE UseDefend()
     {
-        EffectManager.Instance.효과등록(gameObject, "Defence");
+        BattleEffectSystem.Instance.효과등록(gameObject, "Defence");
         stat.행동력_변경(-1);
         stat.다음_행동력 = Mathf.Max(stat.다음_행동력, 1);
         ShowActionText("방어!");
@@ -115,7 +115,7 @@ public abstract class GridAIBase : AIBase
     protected INode.STATE UseBuff()
     {
         // 테스트용 철벽 버프
-        EffectManager.Instance.효과등록(gameObject, "IronDefense");
+        BattleEffectSystem.Instance.효과등록(gameObject, "IronDefense");
         stat.행동력_변경(-1);
         ShowActionText("버프!");
         ctx.RBehaviour = "버프";

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 본능고조
-public class InstinctHeightenedSo : IEffectLogic
+public class BattleIH : IEffectLogic
 {
 
     public void OnRegister(GameObject obj,EffectInstance inst)

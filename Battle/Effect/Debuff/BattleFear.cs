@@ -1,18 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 철벽
-public class IronDefenseSo : IEffectLogic
+// 본능적 공포
+public class BattleFear : IEffectLogic
 {
-
-    public  void OnRegister(GameObject obj,EffectInstance inst)
+    public void OnRegister(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그적용(obj, "Buff.IronDefense");
+        BattleTagSystem.Instance.태그적용(obj, "Debuff.Fear");
     }
-
     public EffectResult OnUse(GameObject obj,EffectInstance inst)
     {
-        return new EffectResult(0.3f, 0.1f);
+        return new EffectResult(0.8f);
     }
 
     public void OnTurnEnd(GameObject obj, EffectInstance inst)
@@ -22,8 +20,7 @@ public class IronDefenseSo : IEffectLogic
     
     public void OnRemove(GameObject obj,EffectInstance inst)
     {
-        BattleTagSystem.Instance.태그제거(obj, "Buff.IronDefense");
+        BattleTagSystem.Instance.태그적용(obj, "Debuff.Fear");
     }
-
     
 }

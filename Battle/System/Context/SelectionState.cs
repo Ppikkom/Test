@@ -101,7 +101,7 @@ namespace BattleCore
         public void 방어활성화(BaseCombatant bc)
         {
             if (bc == null || bc.현재_행동력 <= 0) return;
-            EffectManager.Instance.효과등록(bc.gameObject, "철벽");
+            BattleEffectSystem.Instance.효과등록(bc.gameObject, "철벽");
             bc.행동력_변경(-1);
         }
 

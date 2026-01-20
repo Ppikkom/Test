@@ -341,7 +341,7 @@ public class bUIView : MonoBehaviour
             GameObject buffPanel = buffCards[i];
             List<Image> buffIcons = buffPanel.GetComponentsInChildren<Image>().ToList();
             buffIcons.RemoveAt(0);
-            Sprite[] sprites = EffectManager.Instance.GetBuffIcons(obj[i]);
+            Sprite[] sprites = BattleEffectSystem.Instance.GetBuffIcons(obj[i]);
             
             if (sprites == null)
             {

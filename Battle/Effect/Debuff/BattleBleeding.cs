@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 출혈
-public class BleedingSo : IEffectLogic
+public class BattleBleeding : IEffectLogic
 {
     public void OnRegister(GameObject obj,EffectInstance inst)
     { 

@@ -54,13 +54,13 @@ public class skills : MonoBehaviour
         if (스킬.버프 != BattleBuffType.None)
         {
             //TagManager.Instance.태그적용(가해자, 스킬.버프.ToString());
-            EffectManager.Instance.효과등록(가해자, 스킬.버프.ToString());
+            BattleEffectSystem.Instance.효과등록(가해자, 스킬.버프.ToString());
         }
         if (스킬.디버프 != BattleDeBuffType.None)
         {
 
             //TagManager.Instance.태그적용(피해자, 스킬.디버프.ToString());
-            EffectManager.Instance.효과등록(피해자, 스킬.디버프.ToString());
+            BattleEffectSystem.Instance.효과등록(피해자, 스킬.디버프.ToString());
         }
 
         if (피해자.GetComponent<BaseCombatant>().현재체력 <= 0) 피해자.SetActive(false);
