@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cb10cd83ceb5f4faad79ea93a2cab6, type: 3}
+  m_Name: Burst
+  m_EditorClassIdentifier: Battle::BaseEffectSo
+  effectType: 14
+  id: Burst
+  isContinue: 0
+  defaultDuration: 99
+  maxDuration: 99
+  isStack: 1
+  maxStack: 3

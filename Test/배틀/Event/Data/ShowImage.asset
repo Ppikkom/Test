@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017791fc91c28e3418bf78b0a7750402, type: 3}
+  m_Name: ShowImage
+  m_EditorClassIdentifier: 
+  _event: 3
+  _battleName: Tutorial
+  _turn: 99
+  _image: {fileID: 3812615970026206401, guid: 695d104b9b8eb2d42a06ecd6cc094fb2, type: 3}

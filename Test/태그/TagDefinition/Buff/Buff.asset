@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c7248e83848b741b47050d03f771d9, type: 3}
+  m_Name: Buff
+  m_EditorClassIdentifier: 
+  tagName: Buff
+  parent: {fileID: 0}
+  children:
+  - {fileID: 11400000, guid: d2e4b91878eca8f449b9aa88b15a31da, type: 2}
+  - {fileID: 11400000, guid: ed5ee020c02f9da44bbb8ce86ebef2a3, type: 2}
+  - {fileID: 11400000, guid: 926fc2994f7209f41aa2085ed9758ce1, type: 2}
+  - {fileID: 11400000, guid: ce4b8b7ea67597442a38c9f1ede4407b, type: 2}
+  - {fileID: 11400000, guid: 9770f46550a1ebd409d62c7d38b07b35, type: 2}
+  - {fileID: 11400000, guid: 4f562dad972bc1a40b05b3e30ba04f4c, type: 2}
+  - {fileID: 11400000, guid: 26df07b482fe0d844aee96f3c3b2791b, type: 2}
+  - {fileID: 11400000, guid: b116aaaa2dbca49489b85f6ca6b985f5, type: 2}
+  - {fileID: 11400000, guid: ac77a53709d2d98429657eb9f1a08de0, type: 2}
